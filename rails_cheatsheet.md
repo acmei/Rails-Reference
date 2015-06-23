@@ -38,7 +38,7 @@ Rails Cheatsheet
 ` resources :labels, except: [:index, :show]`
 
 #####_Taking a Block_
-```
+```ruby
 resources :labels do
   # 8 more routes generated
   resources :albums
@@ -48,7 +48,7 @@ end
 #####_Nesting Routes_
 Shouldn't nest more than one deep
 
-```
+```ruby
   resources :labels do
     resources :albums
     resources :artists do
@@ -58,7 +58,7 @@ Shouldn't nest more than one deep
 ```
 
 #####_Collection Routes_
-```
+```ruby
 resources :albums, only: [:index, :show] do
   collection do
     get 'released/:year', action: 'by_year', as: 'by_year'
