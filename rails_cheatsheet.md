@@ -1,7 +1,7 @@
 Rails Cheatsheet
 ----------------
 
-**Startup Rails App**
+##Startup Rails App
 1.  cd into project folder
 2.  `echo 'ProjectName' > .ruby-gemset`
 3.  `echo '2.2.2' > .ruby-version`
@@ -18,16 +18,16 @@ Rails Cheatsheet
 14. open and edit `Gemfile` with gems, save
 15. bundle
 
-**Show All Routes**
+##Show All Routes
 `rake routes`
 
-**Make a Controller**
+##Make a Controller
 `rails generate controller controller_name`
 - Example: `rails generate controller tasks`
 - convention says controller name is plural
   - i.e. ClientsController preferred over ClientController
 
-**Resource Routing**
+##Resource Routing
 _All routes_
 `resources :labels`
 
@@ -46,6 +46,7 @@ end
 ```
 
 _Nesting Routes_
+
 Shouldn't nest more than one deep
 
 ```
@@ -69,16 +70,16 @@ end
 - `as: 'bye_year'` allows for `by_year_albums_path` for linking
 - also have `by_year_albums_url` for linking offsite
 
-**Install Rails**
+##Install Rails
 _Must be in project folder_
 `rails new .`
 
-**Heroku Deployment**
+##Heroku Deployment
 1. Make sure current project is committed, `git commit -m "Your message here"`
 2. `heroku create`
 3. `git push heroku branch:master`
 4. `heroku run rake db:migrate`
 5. `heroku run rake db:seed`
 
-**Add Column**
+##Add Column
 `rails generate migration add_column_to_tasks columnname:string columnname2:integer`
