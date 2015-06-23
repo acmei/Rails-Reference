@@ -28,16 +28,16 @@ Rails Cheatsheet
   - i.e. ClientsController preferred over ClientController
 
 ##Resource Routing
-_All routes_
+#####_All routes_
 `resources :labels`
 
-_Only certain routes_
+#####_Only certain routes_
 ` resources :labels, only: [:index, :show]`
 
-_All routes EXCEPT_
+#####_All routes EXCEPT_
 ` resources :labels, except: [:index, :show]`
 
-_Taking a Block_
+#####_Taking a Block_
 ```
 resources :labels do
   # 8 more routes generated
@@ -45,8 +45,7 @@ resources :labels do
 end
 ```
 
-_Nesting Routes_
-
+#####_Nesting Routes_
 Shouldn't nest more than one deep
 
 ```
@@ -58,7 +57,7 @@ Shouldn't nest more than one deep
   end
 ```
 
-_Collection Routes_
+#####_Collection Routes_
 ```
 resources :albums, only: [:index, :show] do
   collection do
@@ -71,7 +70,7 @@ end
 - also have `by_year_albums_url` for linking offsite
 
 ##Install Rails
-_Must be in project folder_
+#####_Must be in project folder_
 `rails new .`
 
 ##Heroku Deployment
