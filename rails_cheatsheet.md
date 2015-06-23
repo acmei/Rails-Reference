@@ -3,7 +3,7 @@ Rails Cheatsheet
 
 ##Startup Rails App
 1.  cd into project folder
-2.  `echo 'ProjectName' > .ruby-gemset`
+2.  `echo 'ProjectName' > .ruby-gemset` ex) `echo 'TaskListRails' > .ruby-gemset`
 3.  `echo '2.2.2' > .ruby-version`
 4.  cd out and back in to project folder (wrappers happen...)
 5.  `rvm gemset list` (yes it's on the gemset we just created)
@@ -13,10 +13,10 @@ Rails Cheatsheet
 9.  `git add .`
 10. `git commit -m "Created gemset."`
 11. `rails new .`
+12. `git add .`
 12. `git commit "fresh Rails install"`
-13. `touch Gemfile` (if doesn't already exist)
 14. open and edit `Gemfile` with gems, save
-15. bundle
+15. bundle (if adding gem 'pg' `bundle install --without production`)
 
 ##Show All Routes
 `rake routes`
@@ -74,8 +74,7 @@ end
 `rails new .`
 
 ##Heroku Deployment
-_Make sure your sqlite3 gem is under development group_
-_Add gem 'pg'_
+_Make sure your sqlite3 gem is under development group then add add gem 'pg'_
 ```ruby
 group :production do
   gem 'pg'
