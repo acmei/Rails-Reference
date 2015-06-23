@@ -95,5 +95,5 @@ end
 
 
 ##Add Column
-`rails 
+`rails generate migration add_columnname_to_tablename column:type` 
 For example: `rails generate migration add_personid_to_tasks personid:integer`
