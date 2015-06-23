@@ -74,6 +74,14 @@ end
 `rails new .`
 
 ##Heroku Deployment
+_Make sure your sqlite3 gem is under development group_
+_Add gem 'pg'_
+```ruby
+group :production do
+  gem 'pg'
+end
+```
+
 1. Make sure current project is committed, `git commit -m "Your message here"`
 2. `heroku create`
 3. `git push heroku branch:master`
@@ -88,4 +96,5 @@ end
 
 
 ##Add Column
-`rails generate migration add_column_to_tasks columnname:string columnname2:integer`
+`rails 
+For example: `rails generate migration add_personid_to_tasks personid:integer`
