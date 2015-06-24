@@ -26,8 +26,8 @@ Rails Reference
 - `rails generate model student name:string cohort:string birthday:datetime`
 
 ##Add Column
-`rails generate migration add_columnname_to_tablename column:type` 
-For example: `rails generate migration add_personid_to_tasks personid:integer`
+- `rails generate migration add_columnname_to_tablename column:type` 
+- For example: `rails generate migration add_personid_to_tasks personid:integer`
 
 ##Make a Controller
 `rails generate controller controller_name`
