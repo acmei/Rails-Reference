@@ -24,6 +24,10 @@ Rails Reference
 ##Make a Model
 `rails generate model student name:string cohort:string birthday:datetime`
 
+##Add a Column
+- `rails generate migration add_columnname_to_tablename column:type`
+- For example: `rails generate migration add_personid_to_tasks person_id:integer`
+
 ##Make a Controller
 `rails generate controller controller_name`
 - Example: `rails generate controller tasks`
@@ -125,11 +129,12 @@ Rails Cheatsheet
 `rake routes`
 
 ##Make a Model
-`rails generate model student name:string cohort:string birthday:datetime`
+- `rails generate model modelname columnname1:type columnname2:type columname3:type`
+- For example: `rails generate model student name:string cohort:string birthday:datetime`
 
 ##Make a Controller
-`rails generate controller controller_name`
-- Example: `rails generate controller tasks`
+- `rails generate controller controller_name`
+- For example: `rails generate controller tasks`
 - convention says controller name is plural
   - i.e. ClientsController preferred over ClientController
 
@@ -180,7 +185,7 @@ end
 `rails new .`
 
 ##Heroku Deployment
-_Make sure your sqlite3 gem is under development group then add add gem 'pg'_
+- _Make sure your sqlite3 gem is under development group then add add gem 'pg' (see below)_
 ```ruby
 group :production do
   gem 'pg'
@@ -198,8 +203,3 @@ end
 2. `heroku run rake db:migrate`
 3. `heroku run rake db:seed`
 4. `heroku restart`
-
-
-##Add Column
-`rails generate migration add_columnname_to_tablename column:type` 
-For example: `rails generate migration add_personid_to_tasks personid:integer`
