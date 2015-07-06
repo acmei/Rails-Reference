@@ -20,11 +20,11 @@ Rails Reference
                           `gem 'binding_of_caller'`
     - for pry console: `gem 'pry-rails'`
     - if deploying to heroku: move sqlite3 gem to development, then add 
-                               ```ruby
-                              group :production do
-                                gem 'pg'
-                              end
-                              ```
+```ruby
+group :production do
+    gem 'pg'
+end
+```
 15. `bundle install --without production`
 
 ##Show All Routes
