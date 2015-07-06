@@ -16,13 +16,15 @@ Rails Reference
 12. `git add .`
 12. `git commit "fresh Rails install"`
 14. open and edit `Gemfile` with gems, save
-    - for better errors:  gem 'better_errors'
-                          gem 'binding_of_caller'
-    - for pry console: gem 'pry-rails'
+    - for better errors:  `gem 'better_errors'`
+                          `gem 'binding_of_caller'`
+    - for pry console: `gem 'pry-rails'`
     - if deploying to heroku: move sqlite3 gem to development, then add 
+    -                           ```ruby
     -                           group :production do
                                   gem 'pg'
                                 end
+```
 15. `bundle install --without production`
 
 ##Show All Routes
