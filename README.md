@@ -34,15 +34,15 @@ Rails Reference
 - `rails generate model modelname columnname1:type columnname2:type columname3:type`
 - `rails generate model student name:string cohort:string birthday:datetime`
 
-##Add Column
-- `rails generate migration add_columnname_to_tablename column:type` 
-- For example: `rails generate migration add_personid_to_tasks personid:integer`
-
 ##Make a Controller
 `rails generate controller controller_name`
 - Example: `rails generate controller tasks`
 - convention says controller name is plural
   - i.e. ClientsController preferred over ClientController
+
+##Add Column
+- `rails generate migration add_columnname_to_tablename column:type` 
+- For example: `rails generate migration add_personid_to_tasks personid:integer`
 
 ##Resource Routing
 ####_All routes_
@@ -86,9 +86,13 @@ end
 - `as: 'bye_year'` allows for `by_year_albums_path` for linking
 - also have `by_year_albums_url` for linking offsite
 
-##Install Rails
-####_Must be in project folder_
-`rails new .`
+##RSpec Rails
+1. Add gem to development section `gem 'rspec-rails', '~> 3.0'`
+2. `bundle`
+3. `rails generate rspec:install`
+4. To generate tests for Album model `rails generate rspec:model Album`
+5. Go to spec -> model -> album_spec to edit specs
+6. Add `--format doc` to .rspec file to see words
 
 ##Heroku Deployment
 _Make sure your sqlite3 gem is under development group then add gem 'pg'_
