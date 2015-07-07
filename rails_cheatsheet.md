@@ -21,6 +21,9 @@ Rails Cheatsheet
 ##Show All Routes
 `rake routes`
 
+##Make a Model
+`rails generate model student name:string cohort:string birthday:datetime`
+
 ##Make a Controller
 `rails generate controller controller_name`
 - Example: `rails generate controller tasks`
