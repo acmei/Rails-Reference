@@ -104,6 +104,10 @@ end
 3. Edit specs
 4. To run, use `rspec` command in terminal
 
+To run a spec for a specific folder
+`rspec folder/path`
+For example, `rspec spec/controllers`
+
 ##Heroku Deployment
 _Make sure your sqlite3 gem is under development group then add gem 'pg'_
 ```ruby
