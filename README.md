@@ -90,11 +90,19 @@ end
 1. Add gem to development section `gem 'rspec-rails', '~> 3.0'`
 2. `bundle`
 3. `rails generate rspec:install`
-4. To generate tests for Album model `rails generate rspec:model Album`
-5. Go to spec -> model -> album_spec to edit specs
-6. Add `--format doc` to .rspec file to see words
-7. Edit specs
-8. To run, use `rspec` command in terminal
+4. Add `--format doc` to .rspec file to see words
+
+####_Model Specs_(example)
+1. To generate tests for Album model `rails generate rspec:model Album`
+2. Go to spec -> model -> album_spec to edit specs
+3. Edit specs
+4. To run, use `rspec` command in terminal
+
+####_For Controller_(example)
+1. To generate tests for Albums controller`rails generate rspec:controller albums`
+2. Go to spec -> controllers -> album_controller_spec to edit specs
+3. Edit specs
+4. To run, use `rspec` command in terminal
 
 ##Heroku Deployment
 _Make sure your sqlite3 gem is under development group then add gem 'pg'_
