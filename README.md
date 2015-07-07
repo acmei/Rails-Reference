@@ -93,6 +93,8 @@ end
 4. To generate tests for Album model `rails generate rspec:model Album`
 5. Go to spec -> model -> album_spec to edit specs
 6. Add `--format doc` to .rspec file to see words
+7. Edit specs
+8. To run, use `rspec` command in terminal
 
 ##Heroku Deployment
 _Make sure your sqlite3 gem is under development group then add gem 'pg'_
