@@ -138,4 +138,7 @@ end
     - will not save password if these two values don't match
     - `user.authenticate` allows one to check if password matches existing stored `password_digest`
     - `User.find_by(name: 'david').try(:authenticate, 'newd00les')`
+5. Add `home_controller.rb` and `root 'home#index'` to show a home page
+6. `rails g controller sessions`
+7. Add `new`, `create`, and `destroy` methods to SessionsController.
 
