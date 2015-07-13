@@ -19,11 +19,13 @@ Rails Reference
 14. open and edit `Gemfile` with gems, save
     - for better errors (in development section):  `gem 'better_errors'` & `gem 'binding_of_caller'`
     - for pry console (in development section): `gem 'pry-rails'`
+    - for bootstrap: `gem bootstrap-sass`
+    - for bcrypt: `gem bcrypt`
     - if deploying to heroku: move sqlite3 gem to development, then add 
     ```ruby
-        group :production do
-            gem 'pg'
-        end
+    group :production do
+        gem 'pg'
+    end
     ```
 15. `bundle install --without production`
 
@@ -116,12 +118,7 @@ For example, `rspec spec/controllers`
 
 
 ##Heroku Deployment
-_Make sure your sqlite3 gem is under development group then add gem 'pg'_
-```ruby
-group :production do
-  gem 'pg'
-end
-```
+_Make sure your sqlite3 gem is under development group and add gem 'pg' is in production group_
 
 1. Make sure current project is committed, `git commit -m "Your message here"`
 2. `heroku create`
