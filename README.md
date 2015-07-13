@@ -133,5 +133,9 @@ end
 1. add `gem 'bcrypt'`
 2. `bundle`
 3. `rails g model User name:string email:string password_digest:string`
-4. Methods available for models w/ 'password_digest defined': `self.password` and `self.password_confirmation`
+4. Add `has_secure_password` to User model (-> app/model/user.rb)
+    - Methods available for models w/ 'password_digest defined': `user.password` and `user.password_confirmation`
+    - will not save password if these two values don't match
+    - `user.authenticate` allows one to check if password matches existing stored `password_digest`
+    - `User.find_by(name: 'david').try(:authenticate, 'newd00les')`
 
