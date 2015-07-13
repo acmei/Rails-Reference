@@ -24,7 +24,7 @@ Rails Reference
         group :production do
             gem 'pg'
         end
-        ```
+    ```
 15. `bundle install --without production`
 
 
