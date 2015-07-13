@@ -27,12 +27,15 @@ end
 ```
 15. `bundle install --without production`
 
+
 ##Show All Routes
 `rake routes`
 
+
 ##Make a Model
-- `rails generate model modelname columnname1:type columnname2:type columname3:type`
-- `rails generate model student name:string cohort:string birthday:datetime`
+`rails generate model modelname columnname1:type columnname2:type columname3:type`
+- Example: `rails generate model student name:string cohort:string birthday:datetime`
+
 
 ##Make a Controller
 `rails generate controller controller_name`
@@ -40,9 +43,11 @@ end
 - convention says controller name is plural
   - i.e. ClientsController preferred over ClientController
 
+
 ##Add Column
-- `rails generate migration add_columnname_to_tablename column:type` 
-- For example: `rails generate migration add_personid_to_tasks personid:integer`
+`rails generate migration add_columnname_to_tablename column:type` 
+- Example: `rails generate migration add_personid_to_tasks personid:integer`
+
 
 ##Resource Routing
 ####_All routes_
@@ -86,6 +91,7 @@ end
 - `as: 'bye_year'` allows for `by_year_albums_path` for linking
 - also have `by_year_albums_url` for linking offsite
 
+
 ##RSpec Rails
 1. Add gem to development section `gem 'rspec-rails', '~> 3.0'`
 2. `bundle`
@@ -107,6 +113,7 @@ end
 To run a spec for a specific folder
 `rspec folder/path`
 For example, `rspec spec/controllers`
+
 
 ##Heroku Deployment
 _Make sure your sqlite3 gem is under development group then add gem 'pg'_
