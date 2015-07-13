@@ -127,3 +127,11 @@ end
 2. `heroku run rake db:migrate`
 3. `heroku run rake db:seed`
 4. `heroku restart`
+
+
+## User Authentication
+1. add `gem 'bcrypt'`
+2. `bundle`
+3. `rails g model User name:string email:string password_digest:string`
+4. Methods available for models w/ 'password_digest defined': `self.password` and `self.password_confirmation`
+
