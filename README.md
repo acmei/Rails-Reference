@@ -20,7 +20,7 @@ Rails Reference
     - for better errors (in development section):  `gem 'better_errors'` & `gem 'binding_of_caller'`
     - for pry console (in development section): `gem 'pry-rails'`
     - if deploying to heroku: move sqlite3 gem to development, then add 
-        ```ruby
+    ```ruby
         group :production do
             gem 'pg'
         end
