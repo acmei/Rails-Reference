@@ -19,8 +19,8 @@ Rails Reference
 14. open and edit `Gemfile` with gems, save
     - for better errors (in development section):  `gem 'better_errors'` & `gem 'binding_of_caller'`
     - for pry console (in development section): `gem 'pry-rails'`
-    - for bootstrap: `gem bootstrap-sass`
-    - for bcrypt: `gem bcrypt`
+    - for bootstrap: `gem 'bootstrap-sass'`
+    - for bcrypt: `gem 'bcrypt'`
     - if deploying to heroku: move sqlite3 gem to development, then add 
     ```ruby
     group :production do
