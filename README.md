@@ -161,7 +161,8 @@ _Callbacks allow you to trigger logic before or after an alteration of an object
 
 ####_Available Callbacks_
 
-**Creating an Object**
+#####Creating an Object
+
 - `before_validation`
 - `after_validation`
 - `before_save`
@@ -172,7 +173,8 @@ _Callbacks allow you to trigger logic before or after an alteration of an object
 - `after_save`
 - `after_commit/after_rollback`
 
-**Updating an Object**
+#####Updating an Object
+
 - `before_validation`
 - `after_validation`
 - `before_save`
@@ -183,12 +185,12 @@ _Callbacks allow you to trigger logic before or after an alteration of an object
 - `after_save`
 - `after_commit/after_rollback`
 
-**Destroying an Object**
+#####Destroying an Object
+
 - `before_destroy`
 - `around_destroy`
 - `after_destroy`
 - `after_commit/after_rollback`
-
 
 - Example: `before_validation :ensure_login_has_a_value`
 - Example: `after_validation :set_location, on: [ :create, :update ]`
