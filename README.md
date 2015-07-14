@@ -158,6 +158,8 @@ User Authentication
 Callbacks
 ---------
 _Callbacks allow you to trigger logic before or after an alteration of an object's state._
+- Example: `before_validation :ensure_login_has_a_value`
+- Example: `after_validation :set_location, on: [ :create, :update ]`
 
 ####_Available Callbacks_
 
@@ -191,9 +193,6 @@ _Callbacks allow you to trigger logic before or after an alteration of an object
 - `around_destroy`
 - `after_destroy`
 - `after_commit/after_rollback`
-
-- Example: `before_validation :ensure_login_has_a_value`
-- Example: `after_validation :set_location, on: [ :create, :update ]`
 
 
 Filters
