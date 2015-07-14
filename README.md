@@ -157,7 +157,7 @@ User Authentication
 
 Callbacks
 ---------
-Callbacks allow you to trigger logic before or after an alteration of an object's state.
+_Callbacks allow you to trigger logic before or after an alteration of an object's state._
 
 ####_Available Callbacks_
 
@@ -196,7 +196,7 @@ Callbacks allow you to trigger logic before or after an alteration of an object'
 
 Filters
 -------
-Filters are methods that are run before, after or "around" a controller action.
+_Filters are methods that are run before, after or "around" a controller action._
 
 - Example: `before_action :require_login`
 - Example: `skip_before_action :require_login, only: [:new, :create]`
