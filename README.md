@@ -155,6 +155,13 @@ User Authentication
 6. `rails g controller sessions`
 7. Add `new`, `create`, and `destroy` methods to SessionsController.
 
+####_Routes_
+```ruby
+root 'home#index'
+resources :users
+resources :sessions, :only => [:new, :create, :destroy]
+```
+
 Callbacks
 ---------
 _Callbacks allow you to trigger logic before or after an alteration of an object's state._
