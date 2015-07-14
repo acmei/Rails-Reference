@@ -155,3 +155,48 @@ User Authentication
 6. `rails g controller sessions`
 7. Add `new`, `create`, and `destroy` methods to SessionsController.
 
+Callbacks
+---------
+Callbacks allow you to trigger logic before or after an alteration of an object's state.
+
+####_Available Callbacks_
+
+*Creating an Object*
+- `before_validation`
+- `after_validation`
+- `before_save`
+- `around_save`
+- `before_create`
+- `around_create`
+- `after_create`
+- `after_save`
+- `after_commit/after_rollback`
+
+*Updating an Object*
+- `before_validation`
+- `after_validation`
+- `before_save`
+- `around_save`
+- `before_update`
+- `around_update`
+- `after_update`
+- `after_save`
+- `after_commit/after_rollback`
+
+*Destroying an Object*
+- `before_destroy`
+- `around_destroy`
+- `after_destroy`
+- `after_commit/after_rollback`
+
+- Example: `before_validation :ensure_login_has_a_value`
+- Example: `after_validation :set_location, on: [ :create, :update ]`
+
+
+Filters
+-------
+Filters are methods that are run before, after or "around" a controller action.
+
+- Example: `before_action :require_login`
+- Example: `skip_before_action :require_login, only: [:new, :create]`
+- Example: `around_action :wrap_in_transaction, only: :show`
