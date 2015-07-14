@@ -1,7 +1,8 @@
 Rails Reference
-----------------
+===============
 
-##Startup Rails App
+Startup Rails App
+-----------------
 1.  cd into project folder
 2.  `echo 'ProjectName' > .ruby-gemset` 
     ex) `echo 'TaskListRails' > .ruby-gemset`
@@ -30,28 +31,33 @@ Rails Reference
 15. `bundle install --without production`
 
 
-##Show All Routes
+Show All Routes
+---------------
 `rake routes`
 
 
-##Make a Model
+Make a Model
+------------
 `rails generate model modelname columnname1:type columnname2:type columname3:type`
 - Example: `rails generate model student name:string cohort:string birthday:datetime`
 
 
-##Make a Controller
+Make a Controller
+-----------------
 `rails generate controller controller_name`
 - Example: `rails generate controller tasks`
 - convention says controller name is plural
   - i.e. ClientsController preferred over ClientController
 
 
-##Add Column
+Add Column
+----------
 `rails generate migration add_columnname_to_tablename column:type` 
 - Example: `rails generate migration add_personid_to_tasks personid:integer`
 
 
-##Resource Routing
+Resource Routing
+----------------
 ####_All routes_
 `resources :labels`
 
@@ -94,7 +100,8 @@ end
 - also have `by_year_albums_url` for linking offsite
 
 
-##RSpec Rails
+RSpec
+-----
 1. Add gem to development section `gem 'rspec-rails', '~> 3.0'`
 2. `bundle`
 3. `rails generate rspec:install`
@@ -117,7 +124,8 @@ To run a spec for a specific folder
 For example, `rspec spec/controllers`
 
 
-##Heroku Deployment
+Heroku Deployment
+-----------------
 _Make sure your sqlite3 gem is under development group and add gem 'pg' is in production group_
 
 1. Make sure current project is committed, `git commit -m "Your message here"`
@@ -133,7 +141,8 @@ _Make sure your sqlite3 gem is under development group and add gem 'pg' is in pr
 4. `heroku restart`
 
 
-## User Authentication
+User Authentication
+-------------------
 1. add `gem 'bcrypt'`
 2. `bundle`
 3. `rails g model User name:string email:string password_digest:string`
