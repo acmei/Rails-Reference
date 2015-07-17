@@ -22,6 +22,7 @@ Startup Rails App
     - for pry console (in development section): `gem 'pry-rails'`
     - for bootstrap: `gem 'bootstrap-sass'`
     - for bcrypt: `gem 'bcrypt'`
+    - for rspec: `gem 'rspec'`
     - if deploying to heroku: move sqlite3 gem to development, then add 
     ```ruby
     group :production do
@@ -122,6 +123,8 @@ RSpec
 To run a spec for a specific folder
 `rspec folder/path`
 For example, `rspec spec/controllers`
+
+
 
 
 Heroku Deployment
