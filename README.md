@@ -52,7 +52,8 @@ Startup Rails App
         - add another block to create another version of image transformation (if desired)
         - uncomment file extensions on line 41 to allow only certain file ext. (jpg, png, gif)
       - Add `:image` to albums_params in AlbumsController
-      - Can use `.image_url` and `.image_url(:thumb)`
+      - Able to use these methods `.image_url` and `.image_url(:thumb)`
+      - Add `public/uploads/` to .gitignore
     - if deploying to **heroku**: move sqlite3 gem to development, then add 
     ```ruby
     group :production do
