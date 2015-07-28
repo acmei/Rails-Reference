@@ -252,31 +252,31 @@ _Filters are methods that are run before, after or "around" a controller action.
 FactoryGirl
 -----------
 - Defining a factory within Book model:
-  ```ruby  
-  FactoryGirl.define do
-    factory :book do
-      name "House of Leaves"
-      author "Mark Z. Danielewski"
-      description "House of Leaves is the debut novel by the American author Mark Z. Danielewski, published by Pantheon Books. The novel quickly became a bestseller following its release on March 7, 2000. It was followed by a companion piece, The Whalestoe Letters"
-    end
+```ruby  
+FactoryGirl.define do
+  factory :book do
+    name "House of Leaves"
+    author "Mark Z. Danielewski"
+    description "House of Leaves is the debut novel by the American author Mark Z. Danielewski, published by Pantheon Books. The novel quickly became a bestseller following its release on March 7, 2000. It was followed by a companion piece, The Whalestoe Letters"
   end
-  ```
+end
+```
 - Using in testing:
-  ```ruby
-  describe Book do
+```ruby
+describe Book do
 
-    describe "validations" do
-      it "is valid" do
-        expect(create(:book)).to be_valid
-      end
-
-      it "is invalid without a name" do
-        expect(build(:book, name: nil)).to be_invalid
-      end
-
+  describe "validations" do
+    it "is valid" do
+      expect(create(:book)).to be_valid
     end
+
+    it "is invalid without a name" do
+      expect(build(:book, name: nil)).to be_invalid
+    end
+
   end
-  ```
-  
+end
+```
+
 - old way: `@book = Book.create(name: "", author: "", description: "")`
 - factory way: `@book = create(:book)` or `10.times { create(:book) }` or `@unsaved_book = build(:book)`
