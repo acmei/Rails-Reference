@@ -41,6 +41,7 @@ Startup Rails App
       - add `has_secure_password` to User model associations
     - **carrierwave**: `gem 'carrierwave'`
       - If imagemagick is not installed: `brew install imagemagick`
+      - Add `gem 'mini_magick'`
     - if deploying to **heroku**: move sqlite3 gem to development, then add 
     ```ruby
     group :production do
