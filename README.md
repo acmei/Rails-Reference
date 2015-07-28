@@ -75,6 +75,12 @@ Add Column
 - Example: `rails generate migration add_personid_to_tasks personid:integer`
 
 
+Remove Column
+----------
+`rails generate migration remove_columnname_from_tablename column:type` 
+- Example: `rails generate migration remove_personalid_from_tasks personid:integer`
+
+
 Resource Routing
 ----------------
 ####_All routes_
