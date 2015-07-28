@@ -17,7 +17,7 @@ Startup Rails App
 11. `rails new .`
 12. `git add .`
 12. `git commit "fresh Rails install"`
-14. open and edit `Gemfile` with gems, save
+14. open and edit `Gemfile` with gems, save and bundle
     - **better errors** (in development section):  `gem 'better_errors'` & `gem 'binding_of_caller'`
     - **pry console** (in development section): `gem 'pry-rails'`
     - **rspec** (in test section): `gem 'rspec-rails'`
@@ -39,9 +39,18 @@ Startup Rails App
       - add `//= require jquery` and `//= require bootstrap-sprockets` to _app/assets/javascripts/application.js_
     - **bcrypt**: `gem 'bcrypt'`
       - add `has_secure_password` to User model associations
-    - **carrierwave**: `gem 'carrierwave'`
+    - **carrierwave**: `gem 'carrierwave'` and `gem 'mini_magick'`
       - If imagemagick is not installed: `brew install imagemagick`
-      - Add `gem 'mini_magick'`
+      - `rails g uploader image`, image can be called anything: avatar, cover_art, etc.
+      - `rails g migration adds_image_to_albums`, to add a reference column (for the image) to database
+      - Add `add_column :albums, :image, :string` to new migration file.
+      - `rake db:migrate`
+      - Open Album Model and add `# Mounted Objects -----------------------`
+      - Add `mount_uploader :image, ImageUploader` under "Mounted Objects"
+      - Go to uploaders/image_uploader.rb, uncomment line 7 `include CarrierWave::MiniMagick`
+        - line 35 block allows you to resize image as it's uploaded, uncomment to resize images to thumbnails (50px by 50px)
+        - add another block to create another version of image transformation (if desired)
+        - uncomment file extensions on line 41 to allow only certain file ext. (jpg, png, gif)
     - if deploying to **heroku**: move sqlite3 gem to development, then add 
     ```ruby
     group :production do
@@ -151,7 +160,6 @@ For example, `rspec spec/controllers`
 
 
 
-
 Heroku Deployment
 -----------------
 _Make sure your sqlite3 gem is under development group and add gem 'pg' is in production group_
@@ -241,10 +249,7 @@ _Filters are methods that are run before, after or "around" a controller action.
 
 FactoryGirl
 -----------
-- Add to test and development sections: `gem "factory_girl_rails"`
-- Add to config block in `spec_helper.rb` `config.include FactoryGirl::Syntax::Methods` and `require 'factory_girl'` to top of `spec_helper.rb`
-- Create file to define factories: `touch spec/factories.rb`
-  - Defining a factory within Book model:
+- Defining a factory within Book model:
   ```ruby  
   FactoryGirl.define do
     factory :book do
@@ -254,7 +259,7 @@ FactoryGirl
     end
   end
   ```
-  - Using in testing:
+- Using in testing:
   ```ruby
   describe Book do
 
@@ -271,5 +276,5 @@ FactoryGirl
   end
   ```
   
-  - old way: `@book = Book.create(name: "", author: "", description: "")`
-  - factory way: `@book = create(:book)` or `10.times { create(:book) }` or `@unsaved_book = build(:book)`
+- old way: `@book = Book.create(name: "", author: "", description: "")`
+- factory way: `@book = create(:book)` or `10.times { create(:book) }` or `@unsaved_book = build(:book)`
