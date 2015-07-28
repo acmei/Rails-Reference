@@ -24,14 +24,14 @@ Startup Rails App
       - `rails generate rspec:install`
       - Add `--format doc` to .rspec file to see words
     - for factory girl (in test section): `gem 'factory_girl_rails', '~> 4.0'`
-      - Add to config block in spec_helper.rb `config.include FactoryGirl::Syntax::Methods` and `require 'factory_girl'`
+      - Add to config block in spec_helper.rb `config.include FactoryGirl::Syntax::Methods` and `require 'factory_girl'` to top of file
       - Create file to define factories: `touch spec/factories.rb`
     - for simplecov (in test section): `gem 'simplecov', require: false`
       - add 
-        ```ruby
-        require 'simplecov'
-        SimpleCov.start 'rails'
-        ```
+      ```ruby
+      require 'simplecov'
+      SimpleCov.start 'rails'
+      ```
       - add `coverage` to .gitignore
     - for bootstrap: `gem 'bootstrap-sass'`
       - create custom.css.scss file for your own custom CSS
