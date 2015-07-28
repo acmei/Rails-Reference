@@ -20,9 +20,23 @@ Startup Rails App
 14. open and edit `Gemfile` with gems, save
     - for better errors (in development section):  `gem 'better_errors'` & `gem 'binding_of_caller'`
     - for pry console (in development section): `gem 'pry-rails'`
+    - for rspec (in test section): `gem 'rspec-rails'`
+      - `rails generate rspec:install`
+      - Add `--format doc` to .rspec file to see words
+    - for factory girl (in test section): `gem 'factory_girl_rails', '~> 4.0'`
+      - Add to config block in spec_helper.rb `config.include FactoryGirl::Syntax::Methods` and `require 'factory_girl'`
+      - Create file to define factories: `touch spec/factories.rb`
+    - for simplecov (in test section): `gem 'simplecov', require: false`
+      - add ```ruby
+        require 'simplecov'
+        SimpleCov.start 'rails'
+        ```
+      - add `coverage` to .gitignore
     - for bootstrap: `gem 'bootstrap-sass'`
+      - create custom.css.scss file for your own custom CSS
+      - add `@import "bootstrap-sprockets";` followed by `@import "bootstrap";` to _custom.css.scss_
+      - add `//= require jquery` and `//= require bootstrap-sprockets` to _app/assets/javascripts/application.js_
     - for bcrypt: `gem 'bcrypt'`
-    - for rspec: `gem 'rspec'`
     - if deploying to heroku: move sqlite3 gem to development, then add 
     ```ruby
     group :production do
