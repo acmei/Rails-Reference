@@ -39,7 +39,7 @@ Startup Rails App
       - add `//= require jquery` and `//= require bootstrap-sprockets` to _app/assets/javascripts/application.js_
     - **bcrypt**: `gem 'bcrypt'`
       - add `has_secure_password` to User model associations
-    - **carrierwave**: `gem 'carrierwave'` and `gem 'mini_magick'`
+    - **carrierwave**: add `gem 'mini_magick'` BEFORE `gem 'carrierwave'` 
       - If imagemagick is not installed: `brew install imagemagick`
       - `rails g uploader image`, image can be called anything: avatar, cover_art, etc.
       - `rails g migration adds_image_to_albums`, to add a reference column (for the image) to database
@@ -51,6 +51,8 @@ Startup Rails App
         - line 35 block allows you to resize image as it's uploaded, uncomment to resize images to thumbnails (50px by 50px)
         - add another block to create another version of image transformation (if desired)
         - uncomment file extensions on line 41 to allow only certain file ext. (jpg, png, gif)
+      - Add `:image` to albums_params in AlbumsController
+      - Can use `.image_url` and `.image_url(:thumb)`
     - if deploying to **heroku**: move sqlite3 gem to development, then add 
     ```ruby
     group :production do
