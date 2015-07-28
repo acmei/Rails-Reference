@@ -27,7 +27,7 @@ Startup Rails App
       - Add to config block in spec_helper.rb `config.include FactoryGirl::Syntax::Methods` and `require 'factory_girl'` to top of file
       - Create file to define factories: `touch spec/factories.rb`
     - for simplecov (in test section): `gem 'simplecov', require: false`
-      - add 
+      - add to spec/spec_helper.rb
       ```ruby
       require 'simplecov'
       SimpleCov.start 'rails'
