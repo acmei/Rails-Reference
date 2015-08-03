@@ -54,6 +54,11 @@ Startup Rails App
       - Add `:image` to albums_params in AlbumsController
       - Able to use these methods `.image_url` and `.image_url(:thumb)`
       - Add `public/uploads/` to .gitignore
+    - **HTTParty**: `gem 'httparty'`
+      - `require 'HTTParty'` wherever you're using it
+      - Example: 
+        - `weather_url = "http://api.openweathermap.org/data/2.5/weather?q=Seattle&units=imperial"`
+        - `r = HTTParty.get(weather_url)`
     - if deploying to **heroku**: move sqlite3 gem to development, then add 
     ```ruby
     group :production do
