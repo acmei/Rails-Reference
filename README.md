@@ -37,7 +37,7 @@ Do this after forking from master, make sure you're on your own branch.
 12. `git commit "fresh Rails install"`
 14. open and edit `Gemfile` with gems, save and bundle
   
-    ####Gems
+    ###Gems
     - **better errors** (in development section):  
     ```ruby
     gem 'better_errors'
