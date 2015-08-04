@@ -8,12 +8,12 @@ Table of Contents
 - [Show All Routes](#show-all-routes)
 - [Make a Model](#make-a-model)
 - [Make a Controller](#make-a-controller)
-- [Add and Remove Columns from Migrations](#add-column)
+- [Add & Remove Columns from Migrations](#add-column)
 - [Resource Routing](#resource-routing)
 - [RSpec](#rspec)
 - [Heroku Deployment](#heroku-deployment)
 - [User Authentication](#user-authentication)
-- [Callbacks](#callbacks)
+- [Callbacks & Filters](#callbacks)
 - [Factory Girl](#factory-girl)
 
 ##Startup Rails App
@@ -242,39 +242,6 @@ resources :sessions, :only => [:new, :create, :destroy]
 _Callbacks allow you to trigger logic before or after an alteration of an object's state._
 - Example: `before_validation :ensure_login_has_a_value`
 - Example: `after_validation :set_location, on: [ :create, :update ]`
-
-####_Available Callbacks_
-
-#####Creating an Object
-
-- `before_validation`
-- `after_validation`
-- `before_save`
-- `around_save`
-- `before_create`
-- `around_create`
-- `after_create`
-- `after_save`
-- `after_commit/after_rollback`
-
-#####Updating an Object
-
-- `before_validation`
-- `after_validation`
-- `before_save`
-- `around_save`
-- `before_update`
-- `around_update`
-- `after_update`
-- `after_save`
-- `after_commit/after_rollback`
-
-#####Destroying an Object
-
-- `before_destroy`
-- `around_destroy`
-- `after_destroy`
-- `after_commit/after_rollback`
 
 
 ##Filters
