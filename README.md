@@ -28,86 +28,84 @@ Do this after forking from master, make sure you're on your own branch.
 5.  `rvm gemset list` (yes it's on the gemset we just created)
 6.  `gem install bundler`
 7.  `gem install rails --no-ri --no-rdoc`
-8.  `git status`
-9.  `git add .`
-10. `git commit -m "Created gemset."`
-11. `rails new .`
-12. `git add .`
+8.  `git add .`
+9. `git commit -m "Created gemset."`
+10. `rails new .`
+11. `git add .`
 12. `git commit "fresh Rails install"`
-14. open and edit `Gemfile` with gems, save and bundle
+13. open and edit `Gemfile` with gems, save and bundle
+14. `bundle install --without production`
   
-    ###Gems
-    - **better errors** (in development section):  
-    ```ruby
-    gem 'better_errors'
-    gem 'binding_of_caller'
-    ```
-    - **pry console** (in development section): `gem 'pry-rails'`
-    - **rspec** (in test section): `gem 'rspec-rails'`
-      - `rails generate rspec:install`
-      - Add `--format doc` to .rspec file to see words
-    - **factory girl** (in test section): `gem 'factory_girl_rails', '~> 4.0'`
-      - Add to config block in spec_helper.rb `config.include FactoryGirl::Syntax::Methods` and `require 'factory_girl'` to top of file
-      - Create file to define factories: `touch spec/factories.rb`
-    - **simplecov** (in test section): `gem 'simplecov', require: false`
-      - add to spec/spec_helper.rb
-      ```ruby
-      require 'simplecov'
-      SimpleCov.start 'rails'
-      ```
-      - add `coverage` to .gitignore
-    - **bootstrap**: `gem 'bootstrap-sass'`
-      - create custom.css.scss file for your own custom CSS
-      - add to _custom.css.scss_
-      ```css
-      @import "bootstrap-sprockets";
-      @import "bootstrap";
-      ```
-      - add to _app/assets/javascripts/application.js_
-      ```
-      //= require jquery
-      //= require bootstrap-sprockets
-      ```
-      - restart rails server if already open
-    - **bcrypt**: `gem 'bcrypt'`
-      - add `has_secure_password` to User model associations
-    - **carrierwave**: add `gem 'mini_magick'` BEFORE `gem 'carrierwave'` 
-      - If imagemagick is not installed: `brew install imagemagick`
-      - `rails g uploader image`, image can be called anything: avatar, cover_art, etc.
-      - `rails g migration adds_image_to_albums`, to add a reference column (for the image) to database
-      - Add `add_column :albums, :image, :string` to new migration file.
-      - `rake db:migrate`
-      - Open Album Model and add `# Mounted Objects -----------------------`
-      - Add `mount_uploader :image, ImageUploader` under "Mounted Objects"
-      - Go to uploaders/image_uploader.rb, uncomment line 7 `include CarrierWave::MiniMagick`
-        - line 35 block allows you to resize image as it's uploaded, uncomment to resize images to thumbnails (50px by 50px)
-        - add another block to create another version of image transformation (if desired)
-        - uncomment file extensions on line 41 to allow only certain file ext. (jpg, png, gif)
-      - Add `:image` to albums_params in AlbumsController
-      - Able to use these methods `.image_url` and `.image_url(:thumb)`
-      - Add `public/uploads/` to .gitignore
-    - **HTTParty**: `gem 'httparty'`
-      - `require 'HTTParty'` wherever you're using it
-      - Example: 
-        - `weather_url = "http://api.openweathermap.org/data/2.5/weather?q=Seattle&units=imperial"`
-        - `r = HTTParty.get(weather_url)`
-    - **OmniAuth**
-      - Note different providers have their own gems they maintain and one can use:
-      ```ruby
-      gem 'omniauth'
-      gem 'omniauth-github'
-      ```
-      - Go to GitHub to register new application (in profile settings --> applications --> Developer Applications -- Register New Application)
-      - Authorization callback URL: `http://localhost:3000/auth/github/callback`
-      - Follow remaining steps here: [OmniAuth](https://github.com/Ada-Developers-Academy/daily-curriculum/blob/master/topic_resources/omniauth.md)
-    - if deploying to **heroku**: move sqlite3 gem to development, then add 
-    ```ruby
-    group :production do
-        gem 'pg'
-    end
-    ```
-15. `bundle install --without production`
-
+##Gems
+- **better errors** (in development section):  
+```ruby
+gem 'better_errors'
+gem 'binding_of_caller'
+```
+- **pry console** (in development section): `gem 'pry-rails'`
+- **rspec** (in test section): `gem 'rspec-rails'`
+  - `rails generate rspec:install`
+  - Add `--format doc` to .rspec file to see words
+- **factory girl** (in test section): `gem 'factory_girl_rails', '~> 4.0'`
+  - Add to config block in spec_helper.rb `config.include FactoryGirl::Syntax::Methods` and `require 'factory_girl'` to top of file
+  - Create file to define factories: `touch spec/factories.rb`
+- **simplecov** (in test section): `gem 'simplecov', require: false`
+  - add to spec/spec_helper.rb
+  ```ruby
+  require 'simplecov'
+  SimpleCov.start 'rails'
+  ```
+  - add `coverage` to .gitignore
+- **bootstrap**: `gem 'bootstrap-sass'`
+  - create custom.css.scss file for your own custom CSS
+  - add to _custom.css.scss_
+  ```css
+  @import "bootstrap-sprockets";
+  @import "bootstrap";
+  ```
+  - add to _app/assets/javascripts/application.js_
+  ```
+  //= require jquery
+  //= require bootstrap-sprockets
+  ```
+  - restart rails server if already open
+- **bcrypt**: `gem 'bcrypt'`
+  - add `has_secure_password` to User model associations
+- **carrierwave**: add `gem 'mini_magick'` BEFORE `gem 'carrierwave'` 
+  - If imagemagick is not installed: `brew install imagemagick`
+  - `rails g uploader image`, image can be called anything: avatar, cover_art, etc.
+  - `rails g migration adds_image_to_albums`, to add a reference column (for the image) to database
+  - Add `add_column :albums, :image, :string` to new migration file.
+  - `rake db:migrate`
+  - Open Album Model and add `# Mounted Objects -----------------------`
+  - Add `mount_uploader :image, ImageUploader` under "Mounted Objects"
+  - Go to uploaders/image_uploader.rb, uncomment line 7 `include CarrierWave::MiniMagick`
+    - line 35 block allows you to resize image as it's uploaded, uncomment to resize images to thumbnails (50px by 50px)
+    - add another block to create another version of image transformation (if desired)
+    - uncomment file extensions on line 41 to allow only certain file ext. (jpg, png, gif)
+  - Add `:image` to albums_params in AlbumsController
+  - Able to use these methods `.image_url` and `.image_url(:thumb)`
+  - Add `public/uploads/` to .gitignore
+- **HTTParty**: `gem 'httparty'`
+  - `require 'HTTParty'` wherever you're using it
+  - Example: 
+    - `weather_url = "http://api.openweathermap.org/data/2.5/weather?q=Seattle&units=imperial"`
+    - `r = HTTParty.get(weather_url)`
+- **OmniAuth**
+  - Note different providers have their own gems they maintain and one can use:
+  ```ruby
+  gem 'omniauth'
+  gem 'omniauth-github'
+  ```
+  - Go to GitHub to register new application (in profile settings --> applications --> Developer Applications -- Register New Application)
+  - Authorization callback URL: `http://localhost:3000/auth/github/callback`
+  - Follow remaining steps here: [OmniAuth](https://github.com/Ada-Developers-Academy/daily-curriculum/blob/master/topic_resources/omniauth.md)
+- if deploying to **heroku**: move sqlite3 gem to development, then add 
+```ruby
+group :production do
+    gem 'pg'
+end
+```
 
 ##Show All Routes
 `rake routes`
