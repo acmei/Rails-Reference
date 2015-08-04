@@ -88,7 +88,7 @@ Do this after forking from master, make sure you're on your own branch.
       ```
       - Go to GitHub to register new application (in profile settings --> applications --> Developer Applications -- Register New Application)
       - Authorization callback URL: `http://localhost:3000/auth/github/callback`
-      - Follow remaining steps here: (OmniAuth)[https://github.com/Ada-Developers-Academy/daily-curriculum/blob/master/topic_resources/omniauth.md]
+      - Follow remaining steps here: [OmniAuth](https://github.com/Ada-Developers-Academy/daily-curriculum/blob/master/topic_resources/omniauth.md)
     - if deploying to **heroku**: move sqlite3 gem to development, then add 
     ```ruby
     group :production do
