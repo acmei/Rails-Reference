@@ -5,7 +5,7 @@ Startup Rails App
 -----------------
 1.  cd into project folder
 2.  `echo 'ProjectName' > .ruby-gemset` 
-    ex) `echo 'TaskListRails' > .ruby-gemset`
+    - ex) `echo 'TaskListRails' > .ruby-gemset`
 3.  `echo '2.2.2' > .ruby-version`
 4.  cd out and back in to project folder (wrappers happen...)
 5.  `rvm gemset list` (yes it's on the gemset we just created)
