@@ -18,7 +18,11 @@ Startup Rails App
 12. `git add .`
 12. `git commit "fresh Rails install"`
 14. open and edit `Gemfile` with gems, save and bundle
-    - **better errors** (in development section):  `gem 'better_errors'` & `gem 'binding_of_caller'`
+    - **better errors** (in development section):  
+    ```ruby
+    gem 'better_errors'
+    gem 'binding_of_caller'
+    ```
     - **pry console** (in development section): `gem 'pry-rails'`
     - **rspec** (in test section): `gem 'rspec-rails'`
       - `rails generate rspec:install`
