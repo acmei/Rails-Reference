@@ -1,13 +1,30 @@
 Rails Reference
 ===============
 
-Startup Rails App
+Table of Contents
 -----------------
-1.  cd into project folder
-2.  `echo 'ProjectName' > .ruby-gemset` 
-    - ex) `echo 'TaskListRails' > .ruby-gemset`
-3.  `echo '2.2.2' > .ruby-version`
-4.  cd out and back in to project folder (wrappers happen...)
+- [Startup Rails App](#startup-rails-app)
+- [Show All Routes](#show-all-routes)
+- [Make a Model](#make-a-model)
+- [Make a Controller](#make-a-controller)
+- [Add and Remove Columns from Migrations](#add-column)
+- [Resource Routing](#resource-routing)
+- [RSpec](#rspec)
+- [Heroku Deployment](#heroku-deployment)
+- [User Authentication](#user-authentication)
+- [Callbacks](#callbacks)
+- [Factory Girl](#factory-girl)
+
+##Startup Rails App
+Do this after forking from master, make sure you're on your own branch.
+
+1.  cd into your 'project-forks' folder
+2.  `echo 'ProjectName' > PROJECTFOLDER/.ruby-gemset` 
+    - ex) `echo 'TaskListRails' > C3Projects--TaskListRails/.ruby-gemset`
+3.  `echo '2.2.2' > PROJECTFOLDER/.ruby-version`
+    - ex) `echo '2.2.2' > C3Projects--TaskListRails/.ruby-version`
+4.  cd in to project folder (wrappers happen...)
+    - `cd C3Projects--TaskListRails`
 5.  `rvm gemset list` (yes it's on the gemset we just created)
 6.  `gem install bundler`
 7.  `gem install rails --no-ri --no-rdoc`
@@ -63,6 +80,15 @@ Startup Rails App
       - Example: 
         - `weather_url = "http://api.openweathermap.org/data/2.5/weather?q=Seattle&units=imperial"`
         - `r = HTTParty.get(weather_url)`
+    - **OmniAuth**
+      - Note different providers have their own gems they maintain and one can use:
+      ```ruby
+      gem 'omniauth'
+      gem 'omniauth-github'
+      ```
+      - Go to GitHub to register new application (in profile settings --> applications --> Developer Applications -- Register New Application)
+      - Authorization callback URL: `http://localhost:3000/auth/github/callback`
+      - Follow remaining steps here: (OmniAuth)[https://github.com/Ada-Developers-Academy/daily-curriculum/blob/master/topic_resources/omniauth.md]
     - if deploying to **heroku**: move sqlite3 gem to development, then add 
     ```ruby
     group :production do
@@ -72,39 +98,33 @@ Startup Rails App
 15. `bundle install --without production`
 
 
-Show All Routes
----------------
+##Show All Routes
 `rake routes`
 
 
-Make a Model
-------------
+##Make a Model
 `rails generate model modelname columnname1:type columnname2:type columname3:type`
 - Example: `rails generate model student name:string cohort:string birthday:datetime`
 
 
-Make a Controller
------------------
+##Make a Controller
 `rails generate controller controller_name`
 - Example: `rails generate controller tasks`
 - convention says controller name is plural
   - i.e. ClientsController preferred over ClientController
 
 
-Add Column
-----------
+##Add Column
 `rails generate migration add_columnname_to_tablename column:type` 
 - Example: `rails generate migration add_personid_to_tasks personid:integer`
 
 
-Remove Column
-----------
+##Remove Column
 `rails generate migration remove_columnname_from_tablename column:type` 
 - Example: `rails generate migration remove_personalid_from_tasks personid:integer`
 
 
-Resource Routing
-----------------
+##Resource Routing
 ####_All routes_
 `resources :labels`
 
@@ -147,8 +167,7 @@ end
 - also have `by_year_albums_url` for linking offsite
 
 
-RSpec
------
+##RSpec
 1. Add gem to development section `gem 'rspec-rails', '~> 3.0'`
 2. `bundle`
 3. `rails generate rspec:install`
@@ -172,8 +191,7 @@ For example, `rspec spec/controllers`
 
 
 
-Heroku Deployment
------------------
+##Heroku Deployment
 _Make sure your sqlite3 gem is under development group and add gem 'pg' is in production group_
 
 1. Make sure current project is committed, `git commit -m "Your message here"`
@@ -189,8 +207,7 @@ _Make sure your sqlite3 gem is under development group and add gem 'pg' is in pr
 4. `heroku restart`
 
 
-User Authentication
--------------------
+##User Authentication
 1. add `gem 'bcrypt'`
 2. `bundle`
 3. `rails g model User name:string email:string password_digest:string`
@@ -210,8 +227,7 @@ resources :users
 resources :sessions, :only => [:new, :create, :destroy]
 ```
 
-Callbacks
----------
+##Callbacks
 _Callbacks allow you to trigger logic before or after an alteration of an object's state._
 - Example: `before_validation :ensure_login_has_a_value`
 - Example: `after_validation :set_location, on: [ :create, :update ]`
@@ -250,8 +266,7 @@ _Callbacks allow you to trigger logic before or after an alteration of an object
 - `after_commit/after_rollback`
 
 
-Filters
--------
+##Filters
 _Filters are methods that are run before, after or "around" a controller action._
 
 - Example: `before_action :require_login`
@@ -259,8 +274,7 @@ _Filters are methods that are run before, after or "around" a controller action.
 - Example: `around_action :wrap_in_transaction, only: :show`
 
 
-FactoryGirl
------------
+##FactoryGirl
 - Defining a factory within Book model:
 ```ruby  
 FactoryGirl.define do
