@@ -39,6 +39,7 @@ Do this after forking from master, make sure you're on your own branch.
 ##Gems
 - **better errors** (in development section):  
 ```ruby
+# Better Errors for debugging
 gem 'better_errors'
 gem 'binding_of_caller'
 ```
