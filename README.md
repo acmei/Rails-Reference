@@ -4,6 +4,7 @@ Rails Reference
 Table of Contents
 -----------------
 - [Startup Rails App](#startup-rails-app)
+- [Gems](#gems)
 - [Show All Routes](#show-all-routes)
 - [Make a Model](#make-a-model)
 - [Make a Controller](#make-a-controller)
@@ -35,6 +36,8 @@ Do this after forking from master, make sure you're on your own branch.
 12. `git add .`
 12. `git commit "fresh Rails install"`
 14. open and edit `Gemfile` with gems, save and bundle
+  
+    ####Gems
     - **better errors** (in development section):  
     ```ruby
     gem 'better_errors'
