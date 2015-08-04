@@ -1,8 +1,7 @@
 Rails Reference
 ===============
 
-Table of Contents
------------------
+##Table of Contents
 - [Startup Rails App](#startup-rails-app)
 - [Gems](#gems)
 - [Show All Routes](#show-all-routes)
@@ -16,7 +15,7 @@ Table of Contents
 - [Callbacks & Filters](#callbacks)
 - [Factory Girl](#factory-girl)
 
-##Startup Rails App
+##Startup Rails App [back to Table of Contents](#table-of-contents)
 Do this after forking from master, make sure you're on your own branch.
 
 1.  cd into your 'project-forks' folder
@@ -36,7 +35,7 @@ Do this after forking from master, make sure you're on your own branch.
 13. open and edit `Gemfile` with [gems](#gems), save!
 14. `bundle install --without production`
   
-##Gems
+##Gems [back to Table of Contents](#table-of-contents)
 - **better errors** (in development section):  
 ```ruby
 # Better Errors for debugging
@@ -109,11 +108,11 @@ group :production do
 end
 ```
 
-##Show All Routes
+##Show All Routes [back to Table of Contents](#table-of-contents)
 `rake routes`
 
 
-##Make a Model
+##Make a Model [back to Table of Contents](#table-of-contents)
 `rails generate model modelname columnname1:type columnname2:type columname3:type`
 - Example: `rails generate model student name:string cohort:string birthday:datetime`
 
@@ -125,7 +124,7 @@ end
   - i.e. ClientsController preferred over ClientController
 
 
-##Add Column
+##Add Column [back to Table of Contents](#table-of-contents)
 `rails generate migration add_columnname_to_tablename column:type` 
 - Example: `rails generate migration add_personid_to_tasks personid:integer`
 
@@ -135,7 +134,7 @@ end
 - Example: `rails generate migration remove_personalid_from_tasks personid:integer`
 
 
-##Resource Routing
+##Resource Routing [back to Table of Contents](#table-of-contents)
 ####_All routes_
 `resources :labels`
 
@@ -178,7 +177,7 @@ end
 - also have `by_year_albums_url` for linking offsite
 
 
-##RSpec
+##RSpec [back to Table of Contents](#table-of-contents)
 1. Add gem to development section `gem 'rspec-rails', '~> 3.0'`
 2. `bundle`
 3. `rails generate rspec:install`
@@ -201,8 +200,7 @@ To run a spec for a specific folder
 For example, `rspec spec/controllers`
 
 
-
-##Heroku Deployment
+##Heroku Deployment [back to Table of Contents](#table-of-contents)
 _Make sure your sqlite3 gem is under development group and add gem 'pg' is in production group_
 
 1. Make sure current project is committed, `git commit -m "Your message here"`
@@ -218,7 +216,7 @@ _Make sure your sqlite3 gem is under development group and add gem 'pg' is in pr
 4. `heroku restart`
 
 
-##User Authentication
+##User Authentication [back to Table of Contents](#table-of-contents)
 1. add `gem 'bcrypt'`
 2. `bundle`
 3. `rails g model User name:string email:string password_digest:string`
@@ -238,7 +236,7 @@ resources :users
 resources :sessions, :only => [:new, :create, :destroy]
 ```
 
-##Callbacks
+##Callbacks [back to Table of Contents](#table-of-contents)
 _Callbacks allow you to trigger logic before or after an alteration of an object's state._
 - Example: `before_validation :ensure_login_has_a_value`
 - Example: `after_validation :set_location, on: [ :create, :update ]`
@@ -252,7 +250,7 @@ _Filters are methods that are run before, after or "around" a controller action.
 - Example: `around_action :wrap_in_transaction, only: :show`
 
 
-##FactoryGirl
+##FactoryGirl [back to Table of Contents](#table-of-contents)
 - Defining a factory within Book model:
 ```ruby  
 FactoryGirl.define do
@@ -280,5 +278,9 @@ describe Book do
 end
 ```
 
-- old way: `@book = Book.create(name: "", author: "", description: "")`
-- factory way: `@book = create(:book)` or `10.times { create(:book) }` or `@unsaved_book = build(:book)`
+- old way: 
+  - `@book = Book.create(name: "", author: "", description: "")`
+- factory way: 
+  - `@book = create(:book)`
+  - `10.times { create(:book) }` 
+  - `@unsaved_book = build(:book)`
