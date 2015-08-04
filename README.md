@@ -25,7 +25,6 @@ Do this after forking from master, make sure you're on your own branch.
 3.  `echo '2.2.2' > PROJECTFOLDER/.ruby-version`
     - ex) `echo '2.2.2' > C3Projects--TaskListRails/.ruby-version`
 4.  cd in to project folder (wrappers happen...)
-    - `cd C3Projects--TaskListRails`
 5.  `rvm gemset list` (yes it's on the gemset we just created)
 6.  `gem install bundler`
 7.  `gem install rails --no-ri --no-rdoc`
