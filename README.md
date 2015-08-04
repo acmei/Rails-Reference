@@ -33,7 +33,7 @@ Do this after forking from master, make sure you're on your own branch.
 10. `rails new .`
 11. `git add .`
 12. `git commit "fresh Rails install"`
-13. open and edit `Gemfile` with [gems](#gems), save and bundle
+13. open and edit `Gemfile` with [gems](#gems), save!
 14. `bundle install --without production`
   
 ##Gems
@@ -94,6 +94,7 @@ gem 'binding_of_caller'
 - **OmniAuth**
   - Note different providers have their own gems they maintain and one can use:
   ```ruby
+  # OmniAuth Gems
   gem 'omniauth'
   gem 'omniauth-github'
   ```
