@@ -59,8 +59,17 @@ Do this after forking from master, make sure you're on your own branch.
       - add `coverage` to .gitignore
     - **bootstrap**: `gem 'bootstrap-sass'`
       - create custom.css.scss file for your own custom CSS
-      - add `@import "bootstrap-sprockets";` followed by `@import "bootstrap";` to _custom.css.scss_
-      - add `//= require jquery` and `//= require bootstrap-sprockets` to _app/assets/javascripts/application.js_
+      - add to _custom.css.scss_
+      ```css
+      @import "bootstrap-sprockets";
+      @import "bootstrap";
+      ```
+      - add to _app/assets/javascripts/application.js_
+      ```
+      //= require jquery
+      //= require bootstrap-sprockets
+      ```
+      - restart rails server if already open
     - **bcrypt**: `gem 'bcrypt'`
       - add `has_secure_password` to User model associations
     - **carrierwave**: add `gem 'mini_magick'` BEFORE `gem 'carrierwave'` 
