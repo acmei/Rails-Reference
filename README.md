@@ -177,7 +177,8 @@ end
 - also have `by_year_albums_url` for linking offsite
 
 
-##RSpec #####[back to Table of Contents](#table-of-contents)
+##RSpec 
+[back to Table of Contents](#table-of-contents)
 1. Add gem to development section `gem 'rspec-rails', '~> 3.0'`
 2. `bundle`
 3. `rails generate rspec:install`
@@ -200,7 +201,8 @@ To run a spec for a specific folder
 For example, `rspec spec/controllers`
 
 
-##Heroku Deployment #####[back to Table of Contents](#table-of-contents)
+##Heroku Deployment 
+[back to Table of Contents](#table-of-contents)
 _Make sure your sqlite3 gem is under development group and add gem 'pg' is in production group_
 
 1. Make sure current project is committed, `git commit -m "Your message here"`
@@ -216,7 +218,8 @@ _Make sure your sqlite3 gem is under development group and add gem 'pg' is in pr
 4. `heroku restart`
 
 
-##User Authentication #####[back to Table of Contents](#table-of-contents)
+##User Authentication 
+[back to Table of Contents](#table-of-contents)
 1. add `gem 'bcrypt'`
 2. `bundle`
 3. `rails g model User name:string email:string password_digest:string`
@@ -236,7 +239,8 @@ resources :users
 resources :sessions, :only => [:new, :create, :destroy]
 ```
 
-##Callbacks #####[back to Table of Contents](#table-of-contents)
+##Callbacks 
+[back to Table of Contents](#table-of-contents)
 _Callbacks allow you to trigger logic before or after an alteration of an object's state._
 - Example: `before_validation :ensure_login_has_a_value`
 - Example: `after_validation :set_location, on: [ :create, :update ]`
@@ -250,7 +254,8 @@ _Filters are methods that are run before, after or "around" a controller action.
 - Example: `around_action :wrap_in_transaction, only: :show`
 
 
-##FactoryGirl #####[back to Table of Contents](#table-of-contents)
+##FactoryGirl 
+[back to Table of Contents](#table-of-contents)
 - Defining a factory within Book model:
 ```ruby  
 FactoryGirl.define do
