@@ -29,7 +29,7 @@ Do this after forking from master, make sure you're on your own branch.
 7.  `gem install rails --no-ri --no-rdoc`
 8.  `git add .`
 9. `git commit -m "Created gemset."`
-10. `rails new .`
+10. `rails new . -T`
 11. `git add .`
 12. `git commit "fresh Rails install"`
 13. open and edit `Gemfile` with [gems](#gems), save!
