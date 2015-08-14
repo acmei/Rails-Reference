@@ -204,7 +204,8 @@ For example, `rspec spec/controllers`
 _Make sure your sqlite3 gem is under development group and add gem 'pg' is in production group_
 
 1. Make sure current project is committed, `git commit -m "Your message here"`
-2. `heroku create`
+2. `heroku create NAMEOFSITE`
+   - ex: `heroku create myapp` will create myapp.herokuapp.com
 3. `git push heroku branch:master`
 4. `heroku run rake db:migrate`
 5. `heroku run rake db:seed`
