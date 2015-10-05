@@ -31,7 +31,7 @@ Do this after forking from master, make sure you're on your own branch.
 9. `git commit -m "Created gemset."`
 10. `rails new . -T`
 11. `git add .`
-12. `git commit "fresh Rails install"`
+12. `git commit -m "fresh Rails install"`
 13. open and edit `Gemfile` with [gems](#gems), save!
 14. `bundle install --without production`
   
