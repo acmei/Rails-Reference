@@ -42,14 +42,14 @@ Do this after forking from master, make sure you're on your own branch.
 gem 'better_errors'
 gem 'binding_of_caller'
 ```
-- **Pry Rails** (in development section): `gem 'pry-rails'`
-- **[RSpec](#rspec)** (in test section - click link for more info): `gem 'rspec-rails'`
+- **Pry Rails** (in `group :development`): `gem 'pry-rails'`
+- **[RSpec](#rspec)** (in test section): `gem 'rspec-rails'`
   - `rails generate rspec:install`
   - Add `--format doc` to .rspec file to see words
-- **Factory Girl** (in test section): `gem 'factory_girl_rails', '~> 4.0'`
+- **Factory Girl** (in `group :test`): `gem 'factory_girl_rails', '~> 4.0'`
   - Add to config block in spec_helper.rb `config.include FactoryGirl::Syntax::Methods` and `require 'factory_girl'` to top of file
   - Create file to define factories: `touch spec/factories.rb`
-- **SimpleCov** (in test section): `gem 'simplecov', require: false`
+- **SimpleCov** (in `group :test`): `gem 'simplecov', require: false`
   - add to spec/spec_helper.rb
   ```ruby
   require 'simplecov'
@@ -101,7 +101,7 @@ gem 'binding_of_caller'
   - Go to GitHub to register new application (in profile settings --> applications --> Developer Applications -- Register New Application)
   - Authorization callback URL: `http://localhost:3000/auth/github/callback`
   - Follow remaining steps here: [OmniAuth](https://github.com/Ada-Developers-Academy/daily-curriculum/blob/master/topic_resources/omniauth.md)
-- **VCR**: `gem vcr`
+- **VCR** (in `group :test`): `gem vcr`
   - [VCR github](https://github.com/vcr/vcr)
   - Used to test API calls in RSpec
 - if deploying to **heroku**: move sqlite3 gem to development, then add 
