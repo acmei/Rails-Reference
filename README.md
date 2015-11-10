@@ -4,16 +4,16 @@ Rails Reference
 ##Table of Contents
 - [Startup Rails App](#startup-rails-app)
 - [Gems](#gems)
+- [RSpec](#rspec)
+- [Factory Girl](#factory-girl)
+- [User Authentication](#user-authentication)
 - [Show All Routes](#show-all-routes)
 - [Make a Model](#make-a-model)
 - [Make a Controller](#make-a-controller)
 - [Add & Remove Columns from Migrations](#add-column)
 - [Resource Routing](#resource-routing)
-- [RSpec](#rspec)
-- [Heroku Deployment](#heroku-deployment)
-- [User Authentication](#user-authentication)
 - [Callbacks & Filters](#callbacks)
-- [Factory Girl](#factory-girl)
+- [Heroku Deployment](#heroku-deployment)
 
 ##Startup Rails App
 Do this after forking from master, make sure you're on your own branch.
@@ -42,21 +42,21 @@ Do this after forking from master, make sure you're on your own branch.
 gem 'better_errors'
 gem 'binding_of_caller'
 ```
-- **pry console** (in development section): `gem 'pry-rails'`
-- **rspec** (in test section): `gem 'rspec-rails'`
+- **Pry Rails** (in development section): `gem 'pry-rails'`
+- **[RSpec](#rspec)** (in test section - click link for more info): `gem 'rspec-rails'`
   - `rails generate rspec:install`
   - Add `--format doc` to .rspec file to see words
-- **factory girl** (in test section): `gem 'factory_girl_rails', '~> 4.0'`
+- **Factory Girl** (in test section): `gem 'factory_girl_rails', '~> 4.0'`
   - Add to config block in spec_helper.rb `config.include FactoryGirl::Syntax::Methods` and `require 'factory_girl'` to top of file
   - Create file to define factories: `touch spec/factories.rb`
-- **simplecov** (in test section): `gem 'simplecov', require: false`
+- **SimpleCov** (in test section): `gem 'simplecov', require: false`
   - add to spec/spec_helper.rb
   ```ruby
   require 'simplecov'
   SimpleCov.start 'rails'
   ```
   - add `coverage` to .gitignore
-- **bootstrap**: `gem 'bootstrap-sass'`
+- **Bootstrap**: `gem 'bootstrap-sass'`
   - create custom.css.scss file for your own custom CSS
   - add to _custom.css.scss_
   ```css
@@ -69,9 +69,9 @@ gem 'binding_of_caller'
   //= require bootstrap-sprockets
   ```
   - restart rails server if already open
-- **bcrypt**: `gem 'bcrypt'`
+- **[bcrypt](#user-authentication)** (click link for more info): `gem 'bcrypt'`
   - add `has_secure_password` to User model associations
-- **carrierwave**: add `gem 'mini_magick'` BEFORE `gem 'carrierwave'` 
+- **CarrierWave**: add `gem 'mini_magick'` BEFORE `gem 'carrierwave'` 
   - If imagemagick is not installed: `brew install imagemagick`
   - `rails g uploader image`, image can be called anything: avatar, cover_art, etc.
   - `rails g migration adds_image_to_albums`, to add a reference column (for the image) to database
@@ -101,6 +101,9 @@ gem 'binding_of_caller'
   - Go to GitHub to register new application (in profile settings --> applications --> Developer Applications -- Register New Application)
   - Authorization callback URL: `http://localhost:3000/auth/github/callback`
   - Follow remaining steps here: [OmniAuth](https://github.com/Ada-Developers-Academy/daily-curriculum/blob/master/topic_resources/omniauth.md)
+- **VCR**: `gem vcr`
+  - [VCR github](https://github.com/vcr/vcr)
+  - Used to test API calls in RSpec
 - if deploying to **heroku**: move sqlite3 gem to development, then add 
 ```ruby
 group :production do
