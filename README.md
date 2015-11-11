@@ -36,7 +36,7 @@ Do this after forking from master, make sure you're on your own branch.
 14. `bundle install --without production`
   
 ##Gems
-- **better errors** (in development section):  
+- **better errors** (in `group :development`):  
 ```ruby
 # Better Errors for debugging
 gem 'better_errors'
