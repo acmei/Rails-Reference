@@ -101,7 +101,7 @@ gem 'binding_of_caller'
   - Go to GitHub to register new application (in profile settings --> applications --> Developer Applications -- Register New Application)
   - Authorization callback URL: `http://localhost:3000/auth/github/callback`
   - Follow remaining steps here: [OmniAuth](https://github.com/Ada-Developers-Academy/daily-curriculum/blob/master/topic_resources/omniauth.md)
-- **VCR** (in `group :test`): `gem vcr`
+- **VCR** (in `group :test`): `gem 'vcr'`
   - [VCR github](https://github.com/vcr/vcr)
   - Used to test API calls in RSpec
 - if deploying to **heroku**: move sqlite3 gem to development, then add 
