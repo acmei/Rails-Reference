@@ -1,7 +1,7 @@
 Rails Reference
 ===============
 
-##Table of Contents
+## Table of Contents
 - [Startup Rails App](#startup-rails-app)
 - [Gems](#gems)
 - [RSpec](#rspec)
@@ -15,7 +15,7 @@ Rails Reference
 - [Callbacks & Filters](#callbacks)
 - [Heroku Deployment](#heroku-deployment)
 
-##Startup Rails App
+## Startup Rails App
 Do this after forking from master, make sure you're on your own branch.
 
 1.  cd into your 'project-forks' folder
@@ -35,7 +35,7 @@ Do this after forking from master, make sure you're on your own branch.
 13. open and edit `Gemfile` with [gems](#gems), save!
 14. `bundle install --without production`
   
-##Gems
+## Gems
 - **better errors** (in `group :development`):  
 ```ruby
 # Better Errors for debugging
@@ -111,43 +111,43 @@ group :production do
 end
 ```
 
-##Show All Routes
+## Show All Routes
 `rake routes`
 
 
-##Make a Model
+## Make a Model
 `rails generate model modelname columnname1:type columnname2:type columname3:type`
 - Example: `rails generate model student name:string cohort:string birthday:datetime`
 
 
-##Make a Controller
+## Make a Controller
 `rails generate controller controller_name`
 - Example: `rails generate controller tasks`
 - convention says controller name is plural
   - i.e. ClientsController preferred over ClientController
 
 
-##Add Column
+## Add Column
 `rails generate migration add_columnname_to_tablename column:type` 
 - Example: `rails generate migration add_personid_to_tasks personid:integer`
 
 
-##Remove Column
+## Remove Column
 `rails generate migration remove_columnname_from_tablename column:type` 
 - Example: `rails generate migration remove_personalid_from_tasks personid:integer`
 
 
-##Resource Routing
-####_All routes_
+## Resource Routing
+#### _All routes_
 `resources :labels`
 
-####_Only certain routes_
+#### _Only certain routes_
 ` resources :labels, only: [:index, :show]`
 
-####_All routes EXCEPT_
+#### _All routes EXCEPT_
 ` resources :labels, except: [:index, :show]`
 
-####_Taking a Block_
+#### _Taking a Block_
 ```ruby
 resources :labels do
   # 8 more routes generated
@@ -155,7 +155,7 @@ resources :labels do
 end
 ```
 
-####_Nesting Routes_
+#### _Nesting Routes_
 Shouldn't nest more than one deep
 
 ```ruby
@@ -167,7 +167,7 @@ Shouldn't nest more than one deep
   end
 ```
 
-####_Collection Routes_
+#### _Collection Routes_
 ```ruby
 resources :albums, only: [:index, :show] do
   collection do
@@ -180,19 +180,19 @@ end
 - also have `by_year_albums_url` for linking offsite
 
 
-##RSpec
+## RSpec
 1. Add gem to development section `gem 'rspec-rails', '~> 3.0'`
 2. `bundle`
 3. `rails generate rspec:install`
 4. Add `--format doc` to .rspec file to see words
 
-####_Model Specs_ (example)
+#### _Model Specs_ (example)
 1. To generate tests for Album model `rails generate rspec:model Album`
 2. Go to spec -> model -> album_spec to edit specs
 3. Edit specs
 4. To run, use `rspec` command in terminal
 
-####_For Controller_ (example)
+#### _For Controller_ (example)
 1. To generate tests for Albums controller`rails generate rspec:controller albums`
 2. Go to spec -> controllers -> album_controller_spec to edit specs
 3. Edit specs
@@ -203,7 +203,7 @@ To run a spec for a specific folder
 For example, `rspec spec/controllers`
 
 
-##Heroku Deployment
+## Heroku Deployment
 _Make sure your sqlite3 gem is under development group and add gem 'pg' is in production group_
 
 1. Make sure current project is committed, `git commit -m "Your message here"`
@@ -213,14 +213,14 @@ _Make sure your sqlite3 gem is under development group and add gem 'pg' is in pr
 4. `heroku run rake db:migrate`
 5. `heroku run rake db:seed`
 
-####_If db:drop doesn't work_
+#### _If db:drop doesn't work_
 1. `heroku pg:reset DATABASE`
 2. `heroku run rake db:migrate`
 3. `heroku run rake db:seed`
 4. `heroku restart`
 
 
-##User Authentication
+## User Authentication
 1. add `gem 'bcrypt'`
 2. `bundle`
 3. `rails g model User name:string email:string password_digest:string`
@@ -233,20 +233,20 @@ _Make sure your sqlite3 gem is under development group and add gem 'pg' is in pr
 6. `rails g controller sessions`
 7. Add `new`, `create`, and `destroy` methods to SessionsController.
 
-####_Routes_
+#### _Routes_
 ```ruby
 root 'home#index'
 resources :users
 resources :sessions, :only => [:new, :create, :destroy]
 ```
 
-##Callbacks
+## Callbacks
 _Callbacks allow you to trigger logic before or after an alteration of an object's state._
 - Example: `before_validation :ensure_login_has_a_value`
 - Example: `after_validation :set_location, on: [ :create, :update ]`
 
 
-##Filters
+## Filters
 _Filters are methods that are run before, after or "around" a controller action._
 
 - Example: `before_action :require_login`
@@ -254,7 +254,7 @@ _Filters are methods that are run before, after or "around" a controller action.
 - Example: `around_action :wrap_in_transaction, only: :show`
 
 
-##FactoryGirl 
+## FactoryGirl 
 - Defining a factory within Book model:
 ```ruby  
 FactoryGirl.define do
